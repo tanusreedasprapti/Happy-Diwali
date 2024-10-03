@@ -3,60 +3,59 @@
 body {
     background-color: #212121;
     font-family: 'Sacramento', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .main-wrapper {
-    height: 200px;
-    width: 600px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
 }
 
 .greeting-message {
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.7);
     text-shadow: 0px 2px 1px orange, 0px 0px 6px orange, 0px 5px 10px rgba(0, 0, 0, 1);
 }
 
 .celebration-fireworks {
     list-style-type: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 .celebration-fireworks li {
     display: inline-block;
-    margin: 20px;
+    margin: 15px;
     height: 50px;
     width: 50px;
-    border-radius: 500px;
+    border-radius: 50%;
     position: relative;
     background-color: #8d6e63;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.celebration-fireworks li::before {
+.celebration-fireworks li::before,
+.celebration-fireworks li::after {
     content: '';
     position: absolute;
     height: 100%;
-    background-color: #212121;
     width: 100%;
-    border-radius: 500px;
+    background-color: #212121;
+    border-radius: 50%;
+}
+
+.celebration-fireworks li::before {
     top: -40%;
     left: -30%;
 }
 
 .celebration-fireworks li::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    background-color: #212121;
-    width: 100%;
-    border-radius: 500px;
     top: -40%;
     right: -30%;
 }
@@ -101,9 +100,7 @@ body {
 }
 
 @keyframes fire {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: rotate(55deg);
         width: 20px;
         background: linear-gradient(90deg, orange, orangered);
@@ -113,5 +110,44 @@ body {
         transform: rotate(35deg);
         width: 18px;
         background: linear-gradient(90deg, orangered, orange);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .main-wrapper {
+        width: 90%;
+    }
+
+    .greeting-message {
+        font-size: 2rem;
+    }
+
+    .celebration-fireworks li {
+        height: 40px;
+        width: 40px;
+        margin: 10px;
+    }
+
+    .celebration-fireworks li span {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .greeting-message {
+        font-size: 1.8rem;
+    }
+
+    .celebration-fireworks li {
+        height: 35px;
+        width: 35px;
+        margin: 8px;
+    }
+
+    .celebration-fireworks li span {
+        height: 12px;
+        width: 12px;
     }
 }
